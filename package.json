@@ -1,5 +1,5 @@
 {
-  "name": "generator-android-starter",
+  "name": "generator-android-scaffolding",
   "version": "0.0.0",
   "description": "This is generator project for Android so that we can pick and choose the modules",
   "homepage": "",
@@ -77,6 +77,6 @@
     "pretest": "eslint .",
     "test": "jest"
   },
-  "repository": "mittalprayag25/generator-mc-android-starter",
+  "repository": "mittalprayag25/generator-mc-android-scaffolding",
   "license": "AGPL-3.0"
 }
