@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Super App</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="error_push_reg_server_failed">Push Server Failed</string>
+    <string name="error_general">Some Error Occoured</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="version">version</string>
+
+
+</resources>

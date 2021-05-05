@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@android:color/black</item>
+        <item name="colorPrimaryDark">@android:color/black</item>
+        <item name="colorAccent">@android:color/black</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+
+
+    <style name="apptheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textAllCaps">false</item>
+    </style>
+    <style name="TabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+    </style>
+    <style name="InlineError" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">#FF800000</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="button">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_margin">@dimen/ui_element_gap</item>
+        <item name="android:shadowRadius">2</item>
+        <item name="android:shadowColor">@android:color/white</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+    </style>
+
+    <style name="incident_list_header">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingLeft">@dimen/ui_element_gap</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@color/list_header_background</item>
+    </style>
+
+    <style name="incident_detail_row">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:paddingLeft">@dimen/ui_edge_gap</item>
+        <item name="android:paddingRight">@dimen/ui_edge_gap</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+    </style>
+
+</resources>
+
+
+
