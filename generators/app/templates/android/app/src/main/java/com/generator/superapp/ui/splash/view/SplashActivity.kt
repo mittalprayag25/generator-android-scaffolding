@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import <%= appPackage %>.R
 import <%= appPackage %>.base.BaseActivity
-import <%= appPackage %>.ui.main.MainActivity
+//import <%= appPackage %>.ui.main.MainActivity
 
 class SplashActivity: BaseActivity() {
     lateinit var handler: Handler
