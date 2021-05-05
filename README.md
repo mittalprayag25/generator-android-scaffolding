@@ -16,13 +16,11 @@ Then generate your new project:
 yo mc-android-starter
 ```
 
-## Getting To Know Yeoman
+Then generate your new Activity:
 
- * Yeoman has a heart of gold.
- * Yeoman is a person with feelings and opinions, but is very easy to work with.
- * Yeoman can be too opinionated at times but is easily convinced not to be.
- * Feel free to [learn more about Yeoman](http://yeoman.io/).
-
+```bash
+yo mc-android-starter:activity
+```
 ## License
 
 AGPL-3.0 © [Prayag]()
@@ -34,4 +32,3 @@ AGPL-3.0 © [Prayag]()
 [travis-url]: https://travis-ci.com/mittalprayag25/generator-mc-android-starter
 [daviddm-image]: https://david-dm.org/mittalprayag25/generator-mc-android-starter.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/mittalprayag25/generator-mc-android-starter
-# generator-android-scaffolding
