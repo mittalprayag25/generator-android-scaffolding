@@ -14,8 +14,8 @@ module.exports = class extends Generator {
     // Have Yeoman greet the user.
     this.log(
       yosay(
-        "Welcome to the init " +
-          chalk.red("generator-android-template") +
+        "Welcome to the Activity with Fragments " +
+          chalk.red("generator-android-scaffolding") +
           " generator!"
       )
     );
@@ -167,7 +167,7 @@ module.exports = class extends Generator {
               "\n\n\n" +
               "@Module\n" +
               "abstract class ActivityModule {\n\n" +
-              "@ContributesAndroidInjector\n" +
+              "@ContributesAndroidInjector(modules = [FragmentBuildersModule::class])\n" +
               "abstract fun contribute" +
               name +
               "(): " +

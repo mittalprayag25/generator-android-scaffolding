@@ -12,12 +12,15 @@ import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
 import javax.inject.Inject
 
-class <%= name %> : BaseActivity() {
+class <%= name %> : BaseActivity(), HasSupportFragmentInjector {
 
     private lateinit var viewModel: <%= name %>ViewModel
     
     @Inject
     lateinit var viewModelFactory: SuperAppModelFactory
+
+    @Inject
+    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,4 +51,7 @@ class <%= name %> : BaseActivity() {
             println("initAndObserveViewModel$it")
         })
     }
+
+    override
+    fun supportFragmentInjector() = dispatchingAndroidInjector
 }

@@ -16,17 +16,12 @@
 
 package <%= appPackage %>.di
 
-//import <%= appPackage %>.ui.main.dashboard.view.DashboardFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
-@Suppress("unused")
 @Module
 abstract class FragmentBuildersModule {
-  /*   @ContributesAndroidInjector
-    abstract fun contributeDashboardFragment(): DashboardFragment
 
-   @ContributesAndroidInjector
-    abstract fun contributeAnotherFragment(): AnotherFragment*/
+  // Auto generated code by yeoman
 
 }
