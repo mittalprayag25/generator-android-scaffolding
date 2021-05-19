@@ -1,5 +1,4 @@
-# generator-android-scaffolding [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
-> This is generator project for Android so that we can pick and choose the modules
+This is generator project for Android so that we can pick and choose the modules
 
 ## Installation
 
