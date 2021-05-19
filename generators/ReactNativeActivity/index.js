@@ -20,7 +20,8 @@ module.exports = class extends Generator {
     const prompts = [
       {
         name: "applicationId",
-        message: "What is the applicationId of your app?",
+        message:
+          "What is the applicationId of your app example (com.company.project)?",
         store: true,
         default: this.applicationId
       },
@@ -46,12 +47,18 @@ module.exports = class extends Generator {
             this.layoutXml
           );
         }
+      },
+      {
+        name: "projectName",
+        store: true,
+        default: this.projectName
       }
     ];
     return this.prompt(prompts).then(props => {
       this.props.layoutXml = props.layoutXml;
       this.props.packageName = props.packageName;
       this.props.applicationId = props.applicationId;
+      this.props.projectName = props.projectName;
     });
   }
 
@@ -69,12 +76,16 @@ module.exports = class extends Generator {
         xmlSplit[i].charAt(0).toUpperCase() + xmlSplit[i].substring(1);
     }
 
+    var projectName = this.props.projectName;
+    var projectPath = projectName + "/";
+
     var name = xmlSplit.join("");
     var BR = name.charAt(0).toLowerCase() + name.substring(1);
     this.fs.copyTpl(
       this.templatePath("TemplateActivity.kt"),
       this.destinationPath(
-        "app/src/main/java/" +
+        projectPath +
+          "app/src/main/java/" +
           fullPackageFolder +
           "/" +
           packageNameFolder +
@@ -94,7 +105,8 @@ module.exports = class extends Generator {
     this.fs.copyTpl(
       this.templatePath("TemplateActivityViewModel.kt"),
       this.destinationPath(
-        "app/src/main/java/" +
+        projectPath +
+          "app/src/main/java/" +
           fullPackageFolder +
           "/" +
           packageNameFolder +
@@ -110,7 +122,9 @@ module.exports = class extends Generator {
     );
     this.fs.copyTpl(
       this.templatePath("template_activity.xml"),
-      this.destinationPath("app/src/main/res/layout/" + layoutXml + ".xml"),
+      this.destinationPath(
+        projectPath + "app/src/main/res/layout/" + layoutXml + ".xml"
+      ),
       {
         appPackage: fullPackage,
         packageName: packageName,
@@ -119,8 +133,8 @@ module.exports = class extends Generator {
       }
     );
     this.fs.copy(
-      this.destinationPath("app/src/main/AndroidManifest.xml"),
-      this.destinationPath("app/src/main/AndroidManifest.xml"),
+      this.destinationPath(projectPath + "app/src/main/AndroidManifest.xml"),
+      this.destinationPath(projectPath + "app/src/main/AndroidManifest.xml"),
       {
         process: function(contents) {
           // TODO parse xml and add activity into it
@@ -142,10 +156,16 @@ module.exports = class extends Generator {
 
     this.fs.copy(
       this.destinationPath(
-        "app/src/main/java/" + fullPackageFolder + "/di/ActivityModule.kt"
+        projectPath +
+          "app/src/main/java/" +
+          fullPackageFolder +
+          "/di/ActivityModule.kt"
       ),
       this.destinationPath(
-        "app/src/main/java/" + fullPackageFolder + "/di/ActivityModule.kt"
+        projectPath +
+          "app/src/main/java/" +
+          fullPackageFolder +
+          "/di/ActivityModule.kt"
       ),
       {
         process: function(contents) {
@@ -176,10 +196,16 @@ module.exports = class extends Generator {
     // Updating FragmentBuildersModule
     this.fs.copy(
       this.destinationPath(
-        "app/src/main/java/" + fullPackageFolder + "/di/ViewModelModule.kt"
+        projectPath +
+          "app/src/main/java/" +
+          fullPackageFolder +
+          "/di/ViewModelModule.kt"
       ),
       this.destinationPath(
-        "app/src/main/java/" + fullPackageFolder + "/di/ViewModelModule.kt"
+        projectPath +
+          "app/src/main/java/" +
+          fullPackageFolder +
+          "/di/ViewModelModule.kt"
       ),
       {
         process: function(contents) {
@@ -216,8 +242,8 @@ module.exports = class extends Generator {
     // Updating dependancies in build.gradle related to RN
 
     this.fs.copy(
-      this.destinationPath("app/build.gradle"),
-      this.destinationPath("app/build.gradle"),
+      this.destinationPath(projectPath + "app/build.gradle"),
+      this.destinationPath(projectPath + "app/build.gradle"),
       {
         process: function(contents) {
           var actualClass = contents.toString();
@@ -276,8 +302,8 @@ module.exports = class extends Generator {
     // Updating dependancies settings.gradle
 
     this.fs.copy(
-      this.destinationPath("settings.gradle"),
-      this.destinationPath("settings.gradle"),
+      this.destinationPath(projectPath + "settings.gradle"),
+      this.destinationPath(projectPath + "settings.gradle"),
       {
         process: function(contents) {
           var actualClass = contents.toString();
