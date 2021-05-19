@@ -26,6 +26,7 @@ Generating Activity with fragment
 ```bash
 yo android-scaffolding:activitywithfragment
 ```
+You might face issue with compile if you already have no fragment in the project built from scaffolding
 
 generating fragment
 
