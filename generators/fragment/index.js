@@ -46,12 +46,18 @@ module.exports = class extends Generator {
             this.layoutXml
           );
         }
+      },
+      {
+        name: "projectName",
+        store: true,
+        default: this.projectName
       }
     ];
     return this.prompt(prompts).then(props => {
       this.props.layoutXml = props.layoutXml;
       this.props.packageName = props.packageName;
       this.props.applicationId = props.applicationId;
+      this.props.projectName = props.projectName;
     });
   }
 
@@ -69,12 +75,16 @@ module.exports = class extends Generator {
         xmlSplit[i].charAt(0).toUpperCase() + xmlSplit[i].substring(1);
     }
 
+    var projectName = this.props.projectName;
+    var projectPath = projectName + "/";
+
     var name = xmlSplit.join("");
     var BR = name.charAt(0).toLowerCase() + name.substring(1);
     this.fs.copyTpl(
       this.templatePath("TemplateFragment.kt"),
       this.destinationPath(
-        "app/src/main/java/" +
+        projectPath +
+          "app/src/main/java/" +
           fullPackageFolder +
           "/" +
           packageNameFolder +
@@ -94,7 +104,8 @@ module.exports = class extends Generator {
     this.fs.copyTpl(
       this.templatePath("TemplateFragmentViewModel.kt"),
       this.destinationPath(
-        "app/src/main/java/" +
+        projectPath +
+          "app/src/main/java/" +
           fullPackageFolder +
           "/" +
           packageNameFolder +
@@ -110,7 +121,9 @@ module.exports = class extends Generator {
     );
     this.fs.copyTpl(
       this.templatePath("template_fragment.xml"),
-      this.destinationPath("app/src/main/res/layout/" + layoutXml + ".xml"),
+      this.destinationPath(
+        projectPath + "app/src/main/res/layout/" + layoutXml + ".xml"
+      ),
       {
         appPackage: fullPackage,
         packageName: packageName,
@@ -122,12 +135,14 @@ module.exports = class extends Generator {
     // Updating FragmentBuildersModule
     this.fs.copy(
       this.destinationPath(
-        "app/src/main/java/" +
+        projectPath +
+          "app/src/main/java/" +
           fullPackageFolder +
           "/di/FragmentBuildersModule.kt"
       ),
       this.destinationPath(
-        "app/src/main/java/" +
+        projectPath +
+          "app/src/main/java/" +
           fullPackageFolder +
           "/di/FragmentBuildersModule.kt"
       ),
@@ -163,10 +178,16 @@ module.exports = class extends Generator {
     // Updating FragmentBuildersModule
     this.fs.copy(
       this.destinationPath(
-        "app/src/main/java/" + fullPackageFolder + "/di/ViewModelModule.kt"
+        projectPath +
+          "app/src/main/java/" +
+          fullPackageFolder +
+          "/di/ViewModelModule.kt"
       ),
       this.destinationPath(
-        "app/src/main/java/" + fullPackageFolder + "/di/ViewModelModule.kt"
+        projectPath +
+          "app/src/main/java/" +
+          fullPackageFolder +
+          "/di/ViewModelModule.kt"
       ),
       {
         process: function(contents) {

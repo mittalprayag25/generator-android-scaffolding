@@ -6,7 +6,7 @@
 
         <variable
             name="<%= BR %>VM"
-            type="<%= appPackage %>.<%= packageName %>.<%= name %>VM" />
+            type="<%= appPackage %>.<%= packageName %>.<%= name %>ViewModel" />
     </data>
 
     <LinearLayout
