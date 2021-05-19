@@ -248,7 +248,7 @@ module.exports = class extends Generator {
         process: function(contents) {
           var actualClass = contents.toString();
           var isReactConfigurationAlreadyComplete = actualClass.includes(
-            "react-native\\/react.gradle"
+            'apply from: "../../node_modules/react-native/react.gradle"'
           );
           var addPlugins;
           if (!isReactConfigurationAlreadyComplete) {
