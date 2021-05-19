@@ -21,14 +21,27 @@ Then generate your new Activity:
 ```bash
 yo android-scaffolding:activity
 ```
+
+Generating Activity with fragment
+
+```bash
+yo android-scaffolding:activitywithfragment
+```
+
+generating fragment
+
+```bash
+yo android-scaffolding:fragment
+```
+
+Generating React Native Activity to run the bundle
+
+```bash
+yo android-scaffolding:ReactNativeFragment
+```
+
+Add bundle file in assets folder and access by name in ReactNativeActivity
+
 ## License
 
 AGPL-3.0 © [Prayag]()
-
-
-[npm-image]: https://badge.fury.io/js/generator-android-scaffolding.svg
-[npm-url]: https://npmjs.org/package/generator-android-scaffolding
-[travis-image]: https://travis-ci.com/mittalprayag25/generator-android-scaffolding.svg?branch=master
-[travis-url]: https://travis-ci.com/mittalprayag25/generator-android-scaffolding
-[daviddm-image]: https://david-dm.org/mittalprayag25/generator-android-scaffolding.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/mittalprayag25/generator-android-scaffolding
